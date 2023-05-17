@@ -1,6 +1,8 @@
 // import axios from "axios";
 import { useEffect, useState } from "react";
 import MoviesList from './MovieList';
+// import { findByLabelText } from "@testing-library/react";
+
 
 
 function Home() {
@@ -36,8 +38,9 @@ function Home() {
 
     return (
         <>
-            {/* <h1>Home</h1> */}
+            {/* <h1 className="h1">Home</h1> */}
             < MoviesList movieData={movieData} />
+        
         </>
     );
 
