@@ -1,11 +1,9 @@
 
 import ModalMovie from './ModalMovie'
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import {Button ,Card} from 'react-bootstrap';
 import { useState } from 'react';
 import axios from 'axios';
-import './Movie.css'
-import './Movie.css';
+
 
 
 function Movie(props) {
