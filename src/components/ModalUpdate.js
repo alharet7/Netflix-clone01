@@ -7,20 +7,20 @@ function ModalUpdate(props) {
 
     // const [comment, setComment] = useState("");
 
-    const PATH = `https://image.tmdb.org/t/p/w500`;
+    const PATH = `https://www.themoviedb.org/t/p/w300_and_h450_bestv2`;
 
 
-    const updateComment = async (e) => {
+    const updateComments = async (e) => {
         e.preventDefault();
 
         const obj = {
-            comment: e.target.comment.value
+            comments: e.target.comments.value
         }
 
-        const serverURL = `http://localhost:3003/${props.data.id}`;
+        const serverURL = `${process.env.REACT_APP_serverURL}/upDateMovie/${props.data.id}`;
 
         const result = await axios.put(serverURL, obj);
-        // console.log('done', result.data)
+        console.log('done', result.data)
 
         props.handleClose();
 
@@ -41,10 +41,10 @@ function ModalUpdate(props) {
                     <Image src={PATH + props.data.poster_path}></Image>
                     {props.data.overview}
                 
-                    <Form onSubmit={updateComment}>
+                    <Form onSubmit={updateComments}>
                         <Form.Group >
                             <Form.Label>comment</Form.Label>
-                            <Form.Control name="comment" type="text" defaultValue={props.data.comment} />
+                            <Form.Control name="comments" type="text" defaultValue={props.data.comments} />
                         </Form.Group>
                         <Button variant="success" type="submit" >Save changes</Button>
                     </Form>
@@ -60,4 +60,4 @@ function ModalUpdate(props) {
     )
 }
 
-export default ModalUpdate;
+export default ModalUpdate; 
