@@ -10,7 +10,7 @@ function Home() {
     const [movieData, setMovieData] = useState([])
 
     const getAllMovies = () => {
-        const serverURL = `http://localhost:3003/trending`;
+        const serverURL = `${process.env.REACT_APP_serverURL}/trending`;
 
         // using axios
         // axios.get(serverURL)

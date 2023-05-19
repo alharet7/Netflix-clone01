@@ -25,7 +25,7 @@ function Movie(props) {
         setShowFlag(false)
     }
     const addToFav = () => {
-        const serverURL = `http://localhost:3003/addMovies`;
+        const serverURL = `${process.env.REACT_APP_serverURL}/addMovies`;
         const dataMovie = { ...props.item, comments: comments };
         axios.post(serverURL, dataMovie)
             .then(response => {

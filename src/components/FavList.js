@@ -6,7 +6,7 @@ import axios from "axios";
 
 function FavList() {
 
-    const path = 'https://image.tmdb.org/t/p/w500';
+    const path = 'https://www.themoviedb.org/t/p/w300_and_h450_bestv2';
 
     const [favArr, setfavArr] = useState([]);
     const [updateMovie, setupdateMovie] = useState(false);
@@ -18,7 +18,7 @@ function FavList() {
     }
 
     const getFavMovies = () => {
-        const serverURL = `http://localhost:3003/getMovies`;
+        const serverURL = `${process.env.REACT_APP_serverURL}/getMovies`;
         fetch(serverURL)
             .then((response) => {
                 response.json()
@@ -36,7 +36,7 @@ function FavList() {
 
     const deletemovie = (movieId) => {
 
-        const serverURL = `http://localhost:3003/deleteMovie/${movieId}`;
+        const serverURL = `${process.env.REACT_APP_serverURL}/deleteMovie/${movieId}`;
         axios.delete(serverURL)
             .then(response => {
                 getFavMovies()
@@ -78,7 +78,7 @@ return (
                                     </Card.Text>
                                     <Card.Text>
                                         <h6>Comment:</h6>
-                                        <p>{item.comment}</p>
+                                        <p>{item.comments}</p>
                                     </Card.Text>
                                     <Button variant="dark" onClick={() => { update(item) }}>Update comment</Button>
                                     <Button variant="danger" onClick={() => { deletemovie(item.id) }}>Delete</Button>
